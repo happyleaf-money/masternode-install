@@ -10,9 +10,13 @@ wget https://github.com/happyleaf-money/happyleaf/releases/download/4.3.1.0/happ
 rpcuser="happyleaf"
 rpcpassword="oY06p4d$UI"
 
-mnkey=$1
+clear
+if [ -z "$1" ]; then 
+   #if empty => ask
+   read -p "PLESE ENTER MASTERNODE PRIVATE KEY: "  mnkey
+else
+   mnkey=$1
+fi
 mnNUMBER=$NUMBER
 ./happyleafd --daemon --masternode=1 --masternodeprivkey=${mnkey} --rpcuser=${rpcuser} --rpcpassword=${rpcpassword}
-
-
 
